@@ -1,4 +1,6 @@
 // Configurações
+require('dotenv').config()
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
@@ -34,6 +36,7 @@ db.initDb((err, db) => {
     console.log('O banco conectou com sucesso!')
 
     app.listen(port, () => {
+      console.log('test env', process.env.TEST_VALUE)
       console.log(`Projeto rodando na porta: ${port}`)
     })
   }
